@@ -8,11 +8,11 @@ import (
 func SetRecipeRoutes(router *mux.Router) *mux.Router {
 	router.HandleFunc("/", controllers.Root).Methods("GET")
 
-	router.HandleFunc("/recipes", controllers.NotImplemented).Methods("GET")
-	router.HandleFunc("/recipes", controllers.NotImplemented).Methods("POST")
-	router.HandleFunc("/recipes/{id}", controllers.NotImplemented).Methods("GET")
-	router.HandleFunc("/recipes/{id}", controllers.NotImplemented).Methods("PATCH")
-	router.HandleFunc("/recipes/{id}", controllers.NotImplemented).Methods("DELETE")
+	router.HandleFunc("/recipes", controllers.GetRecipes).Methods("GET")
+	router.HandleFunc("/recipes", controllers.CreateRecipe).Methods("POST")
+	router.HandleFunc("/recipes/{id}", controllers.GetRecipeById).Methods("GET")
+	router.HandleFunc("/recipes/{id}", controllers.UpdateRecipe).Methods("PATCH")
+	router.HandleFunc("/recipes/{id}", controllers.DeleteRecipe).Methods("DELETE")
 
 	return router
 }
